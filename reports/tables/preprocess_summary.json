@@ -1,0 +1,32 @@
+{
+  "raw_rows": 918,
+  "outliers_removed": 19,
+  "outliers_by_feature": {
+    "Age": 0,
+    "RestingBP": 8,
+    "Cholesterol": 3,
+    "MaxHR": 1,
+    "Oldpeak": 7
+  },
+  "rows_after_outliers": 899,
+  "train_rows": 719,
+  "test_rows": 180,
+  "train_cvd": 398,
+  "test_cvd": 94,
+  "test_no_cvd": 86,
+  "n_features": 15,
+  "scaler_mean": {
+    "Age": 53.5109,
+    "RestingBP": 132.3965,
+    "Cholesterol": 198.7996,
+    "MaxHR": 136.8094,
+    "Oldpeak": 0.8874
+  },
+  "scaler_std": {
+    "Age": 9.4275,
+    "RestingBP": 18.5041,
+    "Cholesterol": 109.3246,
+    "MaxHR": 25.4465,
+    "Oldpeak": 1.066
+  }
+}

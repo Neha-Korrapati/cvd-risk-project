@@ -1,0 +1,23 @@
+{
+  "best_classifier": "Logistic Regression",
+  "params": {
+    "Logistic Regression": {},
+    "XGBoost": {
+      "learning_rate": 0.001
+    },
+    "KNN": {
+      "n_neighbors": 32,
+      "weights": "distance"
+    },
+    "SVC Radial": {
+      "gamma": 7.498942093324558e-09
+    },
+    "Decision Tree": {},
+    "RF": {},
+    "AdaBoost": {
+      "learning_rate": 0.046415888336127774,
+      "n_estimators": 1000
+    },
+    "Gaussian NB": {}
+  }
+}

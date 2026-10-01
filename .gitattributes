@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.bat text eol=crlf
+# Keep the dataset byte-identical so its SHA-256 in DEVIATIONS.md stays valid.
+data/raw/heart.csv -text

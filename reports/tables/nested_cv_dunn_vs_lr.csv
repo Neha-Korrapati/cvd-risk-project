@@ -1,0 +1,8 @@
+group,p_vs_reference,sig
+XGBoost,1.0,ns
+KNN,1.0,ns
+SVC Radial,1.0,ns
+Decision Tree,0.0011129911683801137,**
+RF,1.0,ns
+AdaBoost,1.0,ns
+Gaussian NB,1.0,ns

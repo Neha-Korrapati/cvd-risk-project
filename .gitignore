@@ -1,0 +1,11 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Run logs and runtime state
+logs/
+fhir/store.json
+
+# Editor
+.vscode/

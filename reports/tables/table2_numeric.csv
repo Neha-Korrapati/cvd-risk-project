@@ -1,0 +1,6 @@
+Feature,No CVD (ours),No CVD (paper),No CVD match,CVD (ours),CVD (paper),CVD match
+Age,50.55 (9.44),50.55 (9.44),True,55.90 (8.73),55.90 (8.73),True
+RestingBP,130.18 (16.50),130.18 (16.50),True,134.19 (19.83),134.19 (19.83),True
+Cholesterol,227.12 (74.63),227.12 (74.63),True,175.94 (126.39),175.94 (126.39),True
+MaxHR,148.15 (23.29),148.15 (23.29),True,127.66 (23.39),148.15 (23.29),False
+Oldpeak,0.41 (0.70),0.41 (0.70),True,1.27 (1.15),1.27 (1.15),True

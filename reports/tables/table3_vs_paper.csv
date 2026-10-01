@@ -1,0 +1,16 @@
+,our avg rank,our position,paper avg rank
+Age,10.07,1,9.0
+ChestPainType_ATA,4.9,2,6.7
+ChestPainType_NAP,7.09,3,8.3
+ChestPainType_TA,12.37,4,12.7
+Cholesterol,7.93,5,6.7
+ExerciseAngina_Y,2.89,6,2.9
+FastingBS,7.13,7,7.3
+MaxHR,8.16,8,9.1
+Oldpeak,5.49,9,5.4
+RestingBP,12.08,10,11.0
+RestingECG_LVH,11.09,11,11.6
+RestingECG_ST,13.38,12,11.9
+ST_Slope_Down,11.4,13,11.4
+ST_Slope_Flat,1.19,14,1.2
+Sex_M,4.83,15,4.3
