@@ -6,7 +6,6 @@ Oldpeak is standardized internally with the scaler fitted in Step 1
 (DEVIATIONS.md P-03).
 """
 import json
-import logging
 from dataclasses import dataclass
 
 import joblib
@@ -16,20 +15,6 @@ import shap
 
 from . import config as C
 from . import data
-
-
-class _HideBackgroundSizeWarning(logging.Filter):
-    """SHAP warns that a 719-sample background "could cause slower run times".
-    The full training set is used on purpose (ASSUMPTION A-15: the baseline is the
-    average risk over training patients, as in Fig. 4), and with 5 features
-    KernelSHAP is exact and takes about a second per patient, so the warning is
-    noise. Only this message is hidden; other SHAP warnings still show."""
-
-    def filter(self, record: logging.LogRecord) -> bool:
-        return "background data samples could cause slower run times" not in record.getMessage()
-
-
-logging.getLogger("shap").addFilter(_HideBackgroundSizeWarning())
 
 
 @dataclass
