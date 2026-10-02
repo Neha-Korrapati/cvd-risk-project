@@ -27,7 +27,7 @@ NO_RFE = {"KNN", "SVC Radial", "Gaussian NB"}
 # ASSUMPTIONS for details Appendix C does not give (DEVIATIONS.md A-09..A-13).
 SHAP_BACKGROUND_K = 20      # k-means summary of the training set
 SHAP_EXPLAIN_N = 100        # training rows explained per classifier
-SFS_CV_FOLDS = 5            # inner CV used to score candidate subsets
+SFS_CV_FOLDS = 10           # inner CV scoring candidate subsets; 10-fold as everywhere else in the paper
 
 
 def _rank_desc(scores: pd.Series) -> pd.Series:

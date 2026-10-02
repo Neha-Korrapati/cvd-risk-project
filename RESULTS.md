@@ -12,7 +12,7 @@ Assumptions and explanations are in [DEVIATIONS.md](DEVIATIONS.md) (IDs in brack
 | Dataset description (Table II) | **Yes, exactly.** Two typos in the paper found (E-04, E-05) |
 | Decision Tree is the only classifier significantly worse than LR (Fig. 6) | **Yes** (Dunn p = 0.001) |
 | XGBoost is the best classifier (Fig. 6) | **Narrowly.** Highest mean AUROC, but 0.0005 below LR/AdaBoost by median; not significant (R-01) |
-| Top 5 robust features (Table III) | **Yes, same 5 features**; ranks 4 and 5 swapped (R-02) |
+| Top 5 robust features (Table III) | **Yes, same 5 features**; top 2 in the paper's order, ranks 3–5 reshuffled (R-02) |
 | 5 features lose little accuracy vs 15 (Fig. 2, Fig. 7) | **Yes.** Pooled median AUROC 0.909 → 0.895; XGBoost CV curve plateaus after about 5–9 features |
 | Final 5-feature XGBoost: test AUROC 91.3% | **Lower on our split: 87.2%.** Within the 95% range of split-to-split variation (85.1–93.5%); the paper's value is also inside it (R-03) |
 | SHAP: feature directions and importance order (Fig. 4a) | **Yes, same order and directions** |
@@ -48,18 +48,23 @@ Kruskal–Wallis p = 0.00027; Dunn/Bonferroni vs LR: only Decision Tree signific
 
 ## Table III: feature rankings (average rank across 7 classifiers, Decision Tree excluded)
 
-| Feature | Ours | Paper |
+| Rank | Ours | Paper |
 |---|---|---|
-| ST_Slope_Flat | 1.19 ± 0.20 | 1.2 ± 0.21 |
-| ExerciseAngina_Y | 2.89 ± 0.63 | 2.9 ± 0.36 |
-| Sex_M | 4.83 ± 0.52 | 4.3 ± 0.40 |
-| ChestPainType_ATA | 4.90 ± 1.17 | 6.7 ± 0.53 |
-| Oldpeak | 5.49 ± 0.70 | 5.4 ± 0.78 |
-| *6th* | ChestPainType_NAP 7.09 | Cholesterol 6.7 (tied with ATA) |
+| 1 | ST_Slope_Flat 1.19 ± 0.20 | ST_Slope_Flat 1.2 ± 0.21 |
+| 2 | ExerciseAngina_Y 2.83 ± 0.59 | ExerciseAngina_Y 2.9 ± 0.36 |
+| 3 | ChestPainType_ATA 4.45 ± 0.70 | Sex_M 4.3 ± 0.40 |
+| 4 | Sex_M 4.95 ± 0.37 | Oldpeak 5.4 ± 0.78 |
+| 5 | Oldpeak 5.71 ± 0.77 | ChestPainType_ATA 6.7 ± 0.53 |
+| *6th* | ChestPainType_NAP 6.86 | Cholesterol 6.7 (tied with ATA) |
 | AUROC, top 5 (mean over classifiers) | 0.89 | 0.894 |
 | AUROC, all features | 0.92 | 0.917 |
 
-`reports/tables/table3_feature_rankings.csv`
+Forward/backward sequential selection scores candidate subsets with 10-fold CV
+(A-13). An earlier run with 5-fold CV gave the same five features with only
+ranks 4 and 5 swapped relative to the paper (ATA 4.90, Oldpeak 5.49; kept in
+`models/rankings_sfs5fold.json`). Ranks 3–5 are close together and move with
+such details; the gap between 5th and 6th place (1.15) is clear, so the *set*
+of five features is robust. `reports/tables/table3_feature_rankings.csv`
 
 ## Fig. 2 and Fig. 7: is 5 features enough?
 
@@ -67,7 +72,7 @@ Kruskal–Wallis p = 0.00027; Dunn/Bonferroni vs LR: only Decision Tree signific
   features) vs 0.895 (top 5)**. Paper: 0.94 vs 0.92.
 * As in the paper's Fig. 2(e), the Decision Tree *improves* with the top 5 from
   Logistic L1, Tree-Based, FSFS and BSFS.
-* Fig. 7 (XGBoost, 10-fold CV): 1 feature 0.776, 3 → 0.881, **5 → 0.907**, plateau
+* Fig. 7 (XGBoost, 10-fold CV): 1 feature 0.776, 3 → 0.877, **5 → 0.907**, plateau
   ≈ 0.93 from 9–10 features. Paper: ≈0.79, ≈0.89, ≈0.91, plateau ≈0.945.
 
 ## Fig. 3: final model (XGBoost, paper's 5 features, 180-patient test set)
