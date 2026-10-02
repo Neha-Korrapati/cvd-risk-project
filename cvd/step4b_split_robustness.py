@@ -51,7 +51,7 @@ def main() -> None:
     print(f"  mean {a.mean():.4f}  sd {a.std():.4f}  median {a.median():.4f}  "
           f"min {a.min():.4f}  max {a.max():.4f}")
     print(f"  2.5-97.5 percentile: {np.percentile(a, 2.5):.4f} - {np.percentile(a, 97.5):.4f}")
-    print(f"  our primary split (seed {C.SEED}): {ours_auc:.4f} -> percentile "
+    print(f"  our split (seed {C.SPLIT_SEED}): {ours_auc:.4f} -> percentile "
           f"{100 * (a < ours_auc).mean():.0f}")
     print(f"  paper's reported value 0.913 -> percentile {100 * (a < 0.913).mean():.0f}")
 

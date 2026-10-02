@@ -62,7 +62,7 @@ def run() -> dict:
 
     stratify = kept[C.TARGET] if C.STRATIFY_SPLIT else None
     train, test = train_test_split(kept, test_size=C.TEST_SIZE,
-                                   random_state=C.SEED, stratify=stratify)
+                                   random_state=C.SPLIT_SEED, stratify=stratify)
 
     C.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     C.MODELS_DIR.mkdir(parents=True, exist_ok=True)

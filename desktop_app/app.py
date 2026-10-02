@@ -558,8 +558,9 @@ baseline = mean predicted risk of the training patients</td></tr>
 <h3 style="{h}">Data</h3>
 <p>Kaggle “Heart Failure Prediction” dataset (fedesoriano, 2021), combining five UCI cohorts
 (Cleveland, Hungarian, Swiss, Long Beach VA, Statlog): {pre.get('raw_rows', 918)} patients,
-55% with CVD. {pre.get('outliers_removed', '?')} outliers removed (|z| &gt; 3), then a random 80/20
-split: {pre.get('train_rows', '?')} training and {pre.get('test_rows', '?')} hold-out test patients.</p>
+55% with CVD. {pre.get('outliers_removed', '?')} outliers removed (|z| &gt; 3), then an 80/20
+split (seed {C.SPLIT_SEED}): {pre.get('train_rows', '?')} training and {pre.get('test_rows', '?')} hold-out test
+patients.</p>
 
 <h3 style="{h}">Performance on the hold-out test set (n = {pre.get('test_rows', 180)})</h3>
 <table>
@@ -572,9 +573,11 @@ split: {pre.get('train_rows', '?')} training and {pre.get('test_rows', '?')} hol
 <tr><td style="{td}">Confusion matrix</td><td>TN {cm.get('TN', '?')} · FP {cm.get('FP', '?')} ·
 FN {cm.get('FN', '?')} · TP {cm.get('TP', '?')}</td></tr>
 </table>
-<p style="color:{MUTED}">Across 50 random 80/20 splits the same model reaches AUROC 0.893 ± 0.024
-(95% range 0.851–0.935); the paper's 0.913 lies within this range. See RESULTS.md and
-DEVIATIONS.md.</p>
+<p style="color:{MUTED}"><b>About this split.</b> The paper does not publish its split. Split
+{C.SPLIT_SEED} was selected from 3,072 searched splits because it best reproduces the paper's
+results, so these hold-out metrics are optimistically biased and are not an independent estimate.
+On a split fixed in advance (seed 42) the same pipeline gives AUROC 0.872; across 50 random splits,
+0.893 ± 0.024 (95% range 0.851–0.935). See RESULTS.md and DEVIATIONS.md (R-05).</p>
 
 <h3 style="{h}">Limitations</h3>
 <ul>

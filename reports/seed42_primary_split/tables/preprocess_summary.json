@@ -11,9 +11,9 @@
   "rows_after_outliers": 899,
   "train_rows": 719,
   "test_rows": 180,
-  "train_cvd": 390,
-  "test_cvd": 102,
-  "test_no_cvd": 78,
+  "train_cvd": 398,
+  "test_cvd": 94,
+  "test_no_cvd": 86,
   "n_features": 15,
   "scaler_mean": {
     "Age": 53.5109,
